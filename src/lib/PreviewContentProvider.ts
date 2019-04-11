@@ -30,7 +30,7 @@ export default class HtmlDocumentContentProvider implements Disposable {
         this.webPanel = window.createWebviewPanel(
             'brazePreviewHtml',
             'Braze Liquid HTML Preview',
-            ViewColumn.Beside,
+            ViewColumn.Two,
             {}
         );
 
