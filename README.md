@@ -60,6 +60,3 @@ The code is based on [Trevor Kirchner](https://github.com/kirchner-trevor)'s [vs
 
 ⚠️ Braze only implements a subset of Shopify liquid, so things working here may not work in Braze, do test it in Braze to confirm everything works fine before publishing the template.
 
-## License
-
-MIT
