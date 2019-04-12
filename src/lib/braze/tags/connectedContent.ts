@@ -6,6 +6,7 @@ import * as rp from 'request-promise-cache'
 const re = new RegExp(`(https?[^\\s]+)(\\s+.*)?$`)
 
 // usage {% connected_content https://example.com :basic_auth username :retry :save name :cache 900 %}
+// supported options: :basic_auth, :content_type, :save, :cache, :method, :body
 export default <ITagImplOptions>{
     parse: function(tagToken: TagToken) {
         const match = tagToken.args.match(re)
@@ -28,15 +29,32 @@ export default <ITagImplOptions>{
         const renderedUrl = await this.liquid.parseAndRender(this.url, ctx.getAll())
         console.log(`rendered url is ${renderedUrl}`)
 
+        const method = (this.options.method || 'GET').toUpperCase()
+        let cacheTTL = 300 * 1000 // default 5 mins
+        if (method != 'GET') {
+            cacheTTL = 0
+        } else if (!!this.options.cache) {
+            cacheTTL = this.options.cache * 1000
+        }
+
+        let content_type = this.options.content_type
+        if (method == 'POST') {
+            content_type = this.options.content_type || 'application/x-www-form-urlencoded'
+        }
+
         const rpOption = {
-            method: 'GET',
+            resolveWithFullResponse: true,
+            method,
             headers: {
                 'User-Agent': 'braze-liquid-preview-vscode-extension',
+                'Content-Type': content_type,
+                'Accept': this.options.content_type
             },
+            body: this.options.body,
             uri: renderedUrl,
-            json: !!this.options.save,
             cacheKey: renderedUrl,
-            cacheTTL: (this.options.cache == undefined ? 300 : this.options.cache) * 1000,
+            cacheTTL,
+            timeout: 2000,
         }
 
         if (this.options.basic_auth) {
@@ -60,11 +78,14 @@ export default <ITagImplOptions>{
         }
 
         const res = await rp(rpOption);
-
-        if (this.options.save) {
-            ctx.scopes[0][this.options.save] = res
-        } else {
-            return res
+        try {
+            const jsonRes = JSON.parse(res.body)
+            if (Object.prototype.toString.call(jsonRes) == '[object Object]') {
+                jsonRes.__http_status_code__ = res.statusCode
+            }            
+            ctx.scopes[0][this.options.save || 'connected'] = jsonRes
+        } catch (error) {
+            return res.body
         }
     }
 }

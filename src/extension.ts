@@ -20,7 +20,6 @@ export function activate(context: ExtensionContext) {
 
         workspace.onDidChangeTextDocument(async (e: TextDocumentChangeEvent) => {
             if (e.document === window.activeTextEditor.document) {
-                console.log('changed!');
                 provider.update();
             }
         }),

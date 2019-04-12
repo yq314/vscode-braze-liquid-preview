@@ -26,11 +26,6 @@ The code is based on [Trevor Kirchner](https://github.com/kirchner-trevor)'s [vs
   ```
   {{ hash | property_accessor: 'key' }}
   ```
-- `slice`
-  ```
-  {{ str | slice: 1 }}
-  {{ str | slice: 0, -1 }}
-  ```
 
 #### Tags
 - connected_content
@@ -55,11 +50,6 @@ The code is based on [Trevor Kirchner](https://github.com/kirchner-trevor)'s [vs
   {% abort_message('aborted due to error') %}
   ```
 
-
 ## Caveats
 
 ⚠️ Braze only implements a subset of Shopify liquid, so things working here may not work in Braze, do test it in Braze to confirm everything works fine before publishing the template.
-
-## License
-
-MIT
