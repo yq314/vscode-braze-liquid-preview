@@ -19,6 +19,16 @@ The code is based on [Trevor Kirchner](https://github.com/kirchner-trevor)'s [vs
 - Use the keybinding `ctrl+k v` while selecting a file with a `.liquid` extension
 - Use the keybinding `ctrl+shift+p` and type **Braze Liquid: Open Preview to the Side** to run from command panel
 
+## Running locally
+
+Running with `npm`
+```
+npm install
+npm run test
+```
+
+Test your extension with [Visual Studio Code](https://code.visualstudio.com/api/working-with-extensions/testing-extension)
+
 ## Implemented Braze Features
 
 #### Filters
@@ -30,11 +40,14 @@ The code is based on [Trevor Kirchner](https://github.com/kirchner-trevor)'s [vs
 #### Tags
 - connected_content
   ```
-  {% connected_content http://numbersapi.com/random/trivia :save trivia :cache 900 :basic_auth secret_name %}
+  {% connected_content http://numbersapi.com/random/trivia :save trivia :cache 900 :basic_auth <secret_name> %}
   ```
-  For basic auth to work, you'll need to add the username and password into the context json file:
+  For basic auth to work, you'll need to add the username and password into the context json file.
+  
+  - Replace `<template-context>` so that it matches your liquid template's filename `<template-context>.liquid`.
+  - Replace `<secret_name>` so that it matches your basic auth name in Braze or the value in your secrets JSON.
   ```
-  // template.liquid.json
+  // <template-context>.liquid.json
   {
       "__secrets": {
           "<secret_name>": {
