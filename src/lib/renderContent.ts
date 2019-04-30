@@ -1,45 +1,23 @@
-import Liquid from 'liquidjs'
-import brazeFilters from './braze/filters'
-import brazeTags from './braze/tags'
-import { AbortError } from './errors'
-
-const registerBrazeFilters = (engine: Liquid) => {
-  Object.keys(brazeFilters).forEach((name) => {
-    engine.registerFilter(name, brazeFilters[name]);
-  });
-}
-
-const registerBrazeTags = (engine: Liquid) => {
-  Object.keys(brazeTags).forEach((name) => {
-    engine.registerTag(name, brazeTags[name]);
-  });
-};
+import Liquid from 'brazejs'
 
 export default (templateSource, dataSource): Promise<string> => {
   return Promise.resolve()
     .then(() => {
       if (!templateSource) {
-        return "<body>Select document to render</body>";
+        return "<body>Select document to render</body>"
       }
 
-      const engine = new Liquid();
-      
-      registerBrazeFilters(engine);
-      registerBrazeTags(engine);
+      const engine = new Liquid()
 
       let data = JSON.parse(dataSource || "{}");
-      return engine.parseAndRender(templateSource, data);
+      return engine.parseAndRender(templateSource, data)
     })
     .catch((error) => {
-      if (error.originalError && error.originalError.name == 'AbortError') {
-        return error.originalError.message
-      }
-
       return `
           <body>
               <h2>Error occured</h2>
               <pre>${error.message}</pre>
           </body>
-      `;
-    });
+      `
+    })
 }
