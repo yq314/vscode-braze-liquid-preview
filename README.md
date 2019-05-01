@@ -19,6 +19,16 @@ The code is based on [Trevor Kirchner](https://github.com/kirchner-trevor)'s [vs
 - Use the keybinding `ctrl+k v` while selecting a file with a `.liquid` extension
 - Use the keybinding `ctrl+shift+p` and type **Braze Liquid: Open Preview to the Side** to run from command panel
 
+## Running locally
+
+Running with `npm`
+```
+npm install
+npm run test
+```
+
+Test your extension with [Visual Studio Code](https://code.visualstudio.com/api/working-with-extensions/testing-extension)
+
 ## Implemented Braze Features
 
 The Braze templating features are provided by [brazejs](https://github.com/yq314/brazejs), refer to its [README](https://github.com/yq314/brazejs#difference-with-liquidjs) for supported features and usage.
