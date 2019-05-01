@@ -21,34 +21,7 @@ The code is based on [Trevor Kirchner](https://github.com/kirchner-trevor)'s [vs
 
 ## Implemented Braze Features
 
-#### Filters
-- `property_accessor`
-  ```
-  {{ hash | property_accessor: 'key' }}
-  ```
-
-#### Tags
-- connected_content
-  ```
-  {% connected_content http://numbersapi.com/random/trivia :save trivia :cache 900 :basic_auth secret_name %}
-  ```
-  For basic auth to work, you'll need to add the username and password into the context json file:
-  ```
-  // template.liquid.json
-  {
-      "__secrets": {
-          "<secret_name>": {
-              "username": "<your username>",
-              "password": "<your password>"
-          }
-      }
-  }
-  ```
-- abort_message
-  ```
-  {% abort_message() %}
-  {% abort_message('aborted due to error') %}
-  ```
+The Braze templating features are provided by [brazejs](https://github.com/yq314/brazejs), refer to its [README](https://github.com/yq314/brazejs#difference-with-liquidjs) for supported features and usage.
 
 ## Caveats
 

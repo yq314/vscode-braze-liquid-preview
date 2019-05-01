@@ -2,13 +2,12 @@ import {
     workspace, window, commands, 
     ExtensionContext, TextEditorSelectionChangeEvent, 
     TextDocumentChangeEvent
-} from "vscode";
-
-import PreviewContentProvider from './lib/PreviewContentProvider';
+} from "vscode"
+import PreviewContentProvider from './lib/PreviewContentProvider'
 
 export function activate(context: ExtensionContext) {
 
-    let provider = new PreviewContentProvider();
+    let provider = new PreviewContentProvider()
 
     context.subscriptions.push(
         // Global handlers
@@ -25,8 +24,8 @@ export function activate(context: ExtensionContext) {
         }),
 
         // Commands
-        commands.registerCommand('brazeLiquidPreview.preview', () => { provider.show() }),
-    );
+        commands.registerCommand('brazeLiquidPreview.preview', () => { provider.show() })
+    )
 }
 
 export function deactivate() {
