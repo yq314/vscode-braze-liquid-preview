@@ -1,5 +1,6 @@
 .vscode/**
 .vscode-test/**
+node_modules
 out/test/**
 test/**
 src/**
@@ -9,3 +10,4 @@ tsconfig.json
 vsc-extension-quickstart.md
 yarn.lock
 Makefile
+webpack.config.json

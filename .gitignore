@@ -1,5 +1,6 @@
 # Development temporary files
 out
+dist
 node_modules
 .vscode-test
 .DS_Store

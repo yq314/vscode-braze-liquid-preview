@@ -28,7 +28,7 @@
     "activationEvents": [
         "onCommand:brazeLiquidPreview.preview"
     ],
-    "main": "./out/src/extension",
+    "main": "./dist/extension",
     "contributes": {
         "languages": [
             {
@@ -53,8 +53,10 @@
         ]
     },
     "scripts": {
-        "vscode:prepublish": "tsc -p ./",
-        "compile": "copyfiles test/examples/*.* out/ && tsc -p ./",
+        "vscode:prepublish": "webpack --mode production",
+        "compile": "webpack --mode none",
+        "watch": "webpack --mode none --watch",
+        "test-compile": "tsc -p ./",
         "postinstall": "node ./node_modules/vscode/bin/install",
         "test": "npm run compile && node ./node_modules/vscode/bin/test"
     },
@@ -63,8 +65,11 @@
         "@types/node": "^6.0.40",
         "copyfiles": "^1.2.0",
         "mocha": "^6.1.4",
+        "ts-loader": "^5.4.5",
         "typescript": "^2.0.3",
-        "vscode": "^1.1.33"
+        "vscode": "^1.1.33",
+        "webpack": "^4.30.0",
+        "webpack-cli": "^3.3.1"
     },
     "dependencies": {
         "brazejs": "^1.0.3"
