@@ -2,7 +2,7 @@
     "name": "braze-liquid-preview",
     "displayName": "Braze Liquid Preview",
     "description": "Live preview for Braze Liquid templates",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "publisher": "chinyip",
     "engines": {
         "vscode": "^1.23.0"
@@ -72,6 +72,6 @@
         "webpack-cli": "^3.3.1"
     },
     "dependencies": {
-        "brazejs": "^1.0.3"
+        "brazejs": "^1.0.4"
     }
 }

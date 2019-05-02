@@ -1,5 +1,8 @@
 # Change Log
 
+## [0.1.1] - 2019-05-03
+- Upgrade brazejs to 1.0.4 that fixed the issue that abort_message could be rendered multiple times
+
 ## [0.1.0] - 2019-05-01
 - Replace [liquidjs](https://github.com/harttle/liquidjs) with [brazejs](https://github.com/yq314/brazejs)
 
