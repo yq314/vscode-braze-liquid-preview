@@ -1,13 +1,15 @@
 import Liquid from 'brazejs'
 
-export default (templateSource: string, dataSource: string): Promise<string> => {
+export default (templateSource: string, dataSource: string, root: string): Promise<string> => {
   return Promise.resolve()
     .then(() => {
       if (!templateSource) {
         return "<body>Select document to render</body>"
       }
 
-      const engine = new Liquid()
+      const engine = new Liquid({
+        root,
+      })
 
       let data = JSON.parse(dataSource || "{}")
       return engine.parseAndRender(templateSource, data)

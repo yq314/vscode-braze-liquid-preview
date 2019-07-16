@@ -49,6 +49,7 @@ export default class HtmlDocumentContentProvider implements Disposable {
     public async getHtmlContent(): Promise<string> {
         let templateSource: string
         let dataSource: string
+        let root: string
         
         if (window.activeTextEditor && window.activeTextEditor.document) {
             let currentFileName = window.activeTextEditor.document.fileName
@@ -69,8 +70,9 @@ export default class HtmlDocumentContentProvider implements Disposable {
             this._dataFileName = dataFileName
             templateSource = resolveFileOrText(fileName)
             dataSource = resolveFileOrText(dataFileName)
+            root = dirname(fileName)
         }
         
-        return renderContent(templateSource, dataSource)
+        return renderContent(templateSource, dataSource, root)
     }
 }

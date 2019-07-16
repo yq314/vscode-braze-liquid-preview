@@ -1,5 +1,8 @@
 # Change Log
 
+## [0.1.2] - 2019-07-17
+- Upgrade brazejs to 1.1.4 to support content blocks and more filters
+
 ## [0.1.1] - 2019-05-03
 - Upgrade brazejs to 1.0.4 that fixed the issue that abort_message could be rendered multiple times
 

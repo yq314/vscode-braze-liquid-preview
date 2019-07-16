@@ -6,13 +6,13 @@ import renderContent from "../../src/lib/renderContent"
 
 suite("lib/renderContent", () => {
   test("render something simple", async () => {
-    const html = await renderContent("Hello <b>World!</b>", null)
+    const html = await renderContent("Hello <b>World!</b>", null, null)
     assert.equal(html, "Hello <b>World!</b>")
   })
 
   test("render with context", async () => {
     console.log(join(__dirname, "../examples/simple.liquid"))
-    const html = await renderContent("Super {{foo}}!", "{ \"foo\": \"bar\" }")
+    const html = await renderContent("Super {{foo}}!", "{ \"foo\": \"bar\" }", null)
     assert.equal(html, "Super bar!")
   })
 
@@ -21,14 +21,14 @@ suite("lib/renderContent", () => {
       "foo": {
         "bar": "value of bar"
       }
-    }))
+    }), null)
     assert.equal(html, "value is value of bar")
   })
 
   test("render connected_content", async () => {
     const html = await renderContent("{% connected_content https://reqres.in/api/users/{{user_id}} :save user %}{{user.data.first_name}} {{user.data.last_name}}", JSON.stringify({
       "user_id": 1
-    }))
+    }), null)
     assert.equal(html, "George Bluth")
   })
 
@@ -38,7 +38,7 @@ suite("lib/renderContent", () => {
       "custom_attribute": {
         "b": "this is b"
       }
-    }))
+    }), null)
     assert.equal(html, "this is a this is b")
   })
 });

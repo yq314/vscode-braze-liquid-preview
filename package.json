@@ -2,7 +2,7 @@
     "name": "braze-liquid-preview",
     "displayName": "Braze Liquid Preview",
     "description": "Live preview for Braze Liquid templates",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "publisher": "chinyip",
     "engines": {
         "vscode": "^1.23.0"
@@ -62,16 +62,16 @@
     },
     "devDependencies": {
         "@types/mocha": "^2.2.48",
-        "@types/node": "^6.0.40",
+        "@types/node": "^6.14.6",
         "copyfiles": "^1.2.0",
         "mocha": "^6.1.4",
         "ts-loader": "^5.4.5",
-        "typescript": "^2.0.3",
+        "typescript": "^3.5.1",
         "vscode": "^1.1.33",
         "webpack": "^4.30.0",
         "webpack-cli": "^3.3.1"
     },
     "dependencies": {
-        "brazejs": "^1.0.4"
+        "brazejs": "^1.1.4"
     }
 }
