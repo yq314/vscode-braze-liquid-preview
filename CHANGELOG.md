@@ -1,5 +1,8 @@
 # Change Log
 
+## [0.1.3] - 2019-07-19
+- Upgrade brazejs to 1.2.0 that fixed a few bugs
+
 ## [0.1.2] - 2019-07-17
 - Upgrade brazejs to 1.1.4 to support content blocks and more filters
 
