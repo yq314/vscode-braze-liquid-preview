@@ -1,5 +1,8 @@
 # Change Log
 
+## [0.1.4] - 2019-07-21
+- Upgrade brazejs to 1.2.1 that fixed a few more bugs
+
 ## [0.1.3] - 2019-07-19
 - Upgrade brazejs to 1.2.0 that fixed a few bugs
 

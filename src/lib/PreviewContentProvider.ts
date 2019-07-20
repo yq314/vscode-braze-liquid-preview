@@ -38,6 +38,7 @@ export default class HtmlDocumentContentProvider implements Disposable {
     }
 
     public async update(): Promise<void> {
+        this.webPanel.webview.html = 'Rendering...'
         this.webPanel.webview.html = await this.getHtmlContent()
     }
 
