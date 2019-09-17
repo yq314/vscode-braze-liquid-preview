@@ -2,7 +2,7 @@
     "name": "braze-liquid-preview",
     "displayName": "Braze Liquid Preview",
     "description": "Live preview for Braze Liquid templates",
-    "version": "0.1.4",
+    "version": "0.1.5",
     "publisher": "chinyip",
     "engines": {
         "vscode": "^1.23.0"
