@@ -72,6 +72,6 @@
         "webpack-cli": "^3.3.1"
     },
     "dependencies": {
-        "brazejs": "^1.2.1"
+        "brazejs": "^1.2.2"
     }
 }
