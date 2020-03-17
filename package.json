@@ -1,77 +1,77 @@
 {
-    "name": "braze-liquid-preview",
-    "displayName": "Braze Liquid Preview",
-    "description": "Live preview for Braze Liquid templates",
-    "version": "0.1.7",
-    "publisher": "chinyip",
-    "engines": {
-        "vscode": "^1.23.0"
-    },
-    "icon": "icon.png",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/yq314/vscode-braze-liquid-preview"
-    },
-    "galleryBanner": {
-        "color": "#0F6378",
-        "theme": "dark"
-    },
-    "categories": [
-        "Other"
-    ],
-    "keywords": [
-        "Braze",
-        "Liquid",
-        "Template",
-        "Live Preview"
-    ],
-    "activationEvents": [
-        "onCommand:brazeLiquidPreview.preview"
-    ],
-    "main": "./dist/extension",
-    "contributes": {
-        "languages": [
-            {
-                "id": "liquid",
-                "extensions": [
-                    ".liquid"
-                ]
-            }
-        ],
-        "commands": [
-            {
-                "command": "brazeLiquidPreview.preview",
-                "title": "Braze Liquid: Open Preview to the Side"
-            }
-        ],
-        "keybindings": [
-            {
-                "command": "brazeLiquidPreview.preview",
-                "key": "ctrl+k v",
-                "when": "editorLangId == liquid"
-            }
+  "name": "braze-liquid-preview",
+  "displayName": "Braze Liquid Preview",
+  "description": "Live preview for Braze Liquid templates",
+  "version": "0.1.8",
+  "publisher": "chinyip",
+  "engines": {
+    "vscode": "^1.23.0"
+  },
+  "icon": "icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yq314/vscode-braze-liquid-preview"
+  },
+  "galleryBanner": {
+    "color": "#0F6378",
+    "theme": "dark"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "Braze",
+    "Liquid",
+    "Template",
+    "Live Preview"
+  ],
+  "activationEvents": [
+    "onCommand:brazeLiquidPreview.preview"
+  ],
+  "main": "./dist/extension",
+  "contributes": {
+    "languages": [
+      {
+        "id": "liquid",
+        "extensions": [
+          ".liquid"
         ]
-    },
-    "scripts": {
-        "vscode:prepublish": "webpack --mode production",
-        "compile": "webpack --mode none",
-        "watch": "webpack --mode none --watch",
-        "test-compile": "tsc -p ./",
-        "postinstall": "node ./node_modules/vscode/bin/install",
-        "test": "npm run compile && node ./node_modules/vscode/bin/test"
-    },
-    "devDependencies": {
-        "@types/mocha": "^2.2.48",
-        "@types/node": "^6.14.6",
-        "copyfiles": "^1.2.0",
-        "mocha": "^6.1.4",
-        "ts-loader": "^5.4.5",
-        "typescript": "^3.5.1",
-        "vscode": "^1.1.33",
-        "webpack": "^4.30.0",
-        "webpack-cli": "^3.3.1"
-    },
-    "dependencies": {
-        "brazejs": "^1.4.0"
-    }
+      }
+    ],
+    "commands": [
+      {
+        "command": "brazeLiquidPreview.preview",
+        "title": "Braze Liquid: Open Preview to the Side"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "brazeLiquidPreview.preview",
+        "key": "ctrl+k v",
+        "when": "editorLangId == liquid"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "webpack --mode production",
+    "compile": "webpack --mode none",
+    "watch": "webpack --mode none --watch",
+    "test-compile": "tsc -p ./",
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "test": "npm run compile && node ./node_modules/vscode/bin/test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^2.2.48",
+    "@types/node": "^6.14.6",
+    "copyfiles": "^1.2.0",
+    "mocha": "^6.1.4",
+    "ts-loader": "^5.4.5",
+    "typescript": "^3.5.1",
+    "vscode": "^1.1.33",
+    "webpack": "^4.30.0",
+    "webpack-cli": "^3.3.1"
+  },
+  "dependencies": {
+    "brazejs": "^1.5.0"
+  }
 }

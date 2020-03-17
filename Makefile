@@ -1,4 +1,4 @@
 .PHONY: all
 
 publish:
-	vsce publish
+  vsce publish
