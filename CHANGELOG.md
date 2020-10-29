@@ -1,5 +1,8 @@
 # Change Log
 
+## [0.1.9] - 2020-10-29
+- Upgrade brazejs to 1.6.0
+
 ## [0.1.8] - 2020-03-17
 - Upgrade brazejs to 1.5.0
 
